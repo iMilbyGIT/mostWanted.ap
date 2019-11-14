@@ -81,14 +81,14 @@ function searchByName(people){
 
   let foundPerson = people.filter(function(person){
     if(person.firstName === firstName && person.lastName === lastName){
-      return mainMenu(person);
+      //return mainMenu(person);
     }
     else{
       return false;
     }
   })
   // TODO: find the person using the name they entered
-  return foundPerson;
+  return foundPerson[0];
 }
 
 // alerts a list of people
@@ -126,3 +126,11 @@ function chars(input){
 }
 
 
+
+
+
+
+
+
+// need to build a .toLowercase on line82-83
+// 
