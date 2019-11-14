@@ -1,7 +1,5 @@
-"use strict"
-/*
-Build all of your functions for displaying and gathering information below (GUI).
-*/
+"use strict" /* Build all of your functions for displaying and gathering
+information below (GUI). */
 
 // app is the function called to start the entire application
 function app(people){
@@ -12,7 +10,7 @@ function app(people){
       searchResults = searchByName(people);
       break;
     case 'no':
-      // TODO: search by traits
+      searchByTrait(people);
       break;
       default:
     app(people); // restart app
@@ -55,13 +53,27 @@ function mainMenu(person, people){
   }
 }
 
+function searchByTrait(people){
+	let gender = promptFor("Is this person a male or female", chars);
+	let dob = promptFor("What is the person's birthday? Please format as mm/dd/yyyy?", chars);
+	let height = promptFor("How tall is this person? This should be a whole number and converted into inches. There are 12 inches per foot.", chars);
+	let weight = promptFor("How much does this person way? Please enter as a whole number.", chars);
+
+
+
+
+}
+
+
+
+
 function searchByName(people){
   let firstName = promptFor("What is the person's first name?", chars);
   let lastName = promptFor("What is the person's last name?", chars);
 
   let foundPerson = people.filter(function(person){
     if(person.firstName === firstName && person.lastName === lastName){
-      return true;
+      return mainMenu(person);
     }
     else{
       return false;
@@ -104,3 +116,5 @@ function yesNo(input){
 function chars(input){
   return true; // default validation only
 }
+
+
