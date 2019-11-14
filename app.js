@@ -5,12 +5,13 @@ information below (GUI). */
 function app(people){
   let searchType = promptFor("Do you know the name of the person you are looking for? Enter 'yes' or 'no'", yesNo).toLowerCase();
   let searchResults;
+  let searchByTrait;
   switch(searchType){
     case 'yes':
       searchResults = searchByName(people);
       break;
     case 'no':
-      searchByTrait(people);
+      searchResults = searchByTrait(people);
       break;
       default:
     app(people); // restart app
@@ -58,10 +59,17 @@ function searchByTrait(people){
 	let dob = promptFor("What is the person's birthday? Please format as mm/dd/yyyy?", chars);
 	let height = promptFor("How tall is this person? This should be a whole number and converted into inches. There are 12 inches per foot.", chars);
 	let weight = promptFor("How much does this person way? Please enter as a whole number.", chars);
+	let eyeColor = promptFor("What color is this person's eyes?");
 
-
-
-
+	let foundTrait = people.filter(function(person){
+		if(person.gender === gender && person.dob === dob && person.height === height && person.weight === weight && person.eyeColor === eyeColor){
+			return mainMenu(person);
+		}
+		else{
+			return false;
+		}
+	})
+	return foundTrait;
 }
 
 
