@@ -5,7 +5,7 @@ information below (GUI). */
 function app(people){
   let searchType = promptFor("Do you know the name of the person you are looking for? Enter 'yes' or 'no'", yesNo).toLowerCase();
   let searchResults;
-  let searchByTrait;
+  // let searchByTrait;
   switch(searchType){
     case 'yes':
       searchResults = searchByName(people);
@@ -36,13 +36,13 @@ function mainMenu(person, people){
 
   switch(displayOption){
     case "info":
-    // TODO: get person's info
+    alert(person.firstName + " " + person.lastName + "'s Info Is:" + person.gender + " " + person.dob + " " + person.height + " " + person.weight + " " + person.eyeColor + " " + person.occupation);
     break;
     case "family":
-    // TODO: get person's family
+    alert(person.firstName + " " + person.lastName + "'s Family Info Is:"
     break;
     case "descendants":
-    // TODO: get person's descendants
+    alert(person.firstName + " " + person.lastName + "'s Descendant Info Is:"
     break;
     case "restart":
     app(people); // restart
@@ -54,32 +54,33 @@ function mainMenu(person, people){
   }
 }
 
-// function searchByTrait(){
-// 	let gender = promptFor("Is this person a male or female", chars);
-// 	let dob = promptFor("What is the person's birthday? Please format as mm/dd/yyyy?", chars);
-// 	let height = promptFor("How tall is this person? This should be a whole number and converted into inches. There are 12 inches per foot.", chars);
-// 	let weight = promptFor("How much does this person way? Please enter as a whole number.", chars);
-// 	let eyeColor = promptFor("What color is this person's eyes?", chars);
 
-// 	let foundTrait = people.filter(function(person){
-// 		if(person.gender === gender && person.dob === dob && person.height === height && person.weight === weight && person.eyeColor === eyeColor){
-// 			return mainMenu(person);
-// 		}
-// 		else{
-// 			return false;
-// 		}
-// 	})
-// 	return foundTrait;
-// }
+function searchByTrait(people){
+	let gender = promptFor("Is this person a male or female?", chars);
+	let dob = promptFor("Please Enter Birthday As MM/DD/YYYY?", chars);
+	let height = promptFor("How tall is this person? This should be a whole number and converted into inches. There are 12 inches per foot.", chars);
+	let weight = promptFor("How much does this person way? Please enter as a whole number.", chars);
+	let eyeColor = promptFor("What color is this person's eyes?", chars);
+
+	let foundTrait = people.filter(function(person){
+		if(person.gender === gender && person.dob === dob && person.height === height && person.weight === weight && person.eyeColor === eyeColor){
+			return mainMenu(person);
+		}
+		else{
+			return false;
+		}
+	})
+	return foundTrait;
+}
 
 
 function searchByName(people){
-  let firstName = promptFor("What is the person's first name?", chars).toLowercase();
-  let lastName = promptFor("What is the person's last name?", chars);.toLowerCase();
+  let firstName = promptFor("What is the person's first name?", chars).toLowerCase();
+  let lastName = promptFor("What is the person's last name?", chars).toLowerCase();
 
   let foundPerson = people.filter(function(person){
-    if(person.firstName.toLowercase() === firstName && person.lastName.toLowerCase() === lastName){
-      //return mainMenu(person);
+    if(person.firstName.toLowerCase() === firstName && person.lastName.toLowerCase() === lastName){
+    return mainMenu(person);
     }
     else{
       return false;
@@ -122,13 +123,3 @@ function yesNo(input){
 function chars(input){
   return true; // default validation only
 }
-
-
-
-
-
-
-
-
-// need to build a .toLowercase on line82-83
-// 
