@@ -36,13 +36,13 @@ function mainMenu(person, people){
 
   switch(displayOption){
     case "info":
-    alert(person.firstName + " " + person.lastName + "'s Info Is:" + person.gender + " " + person.dob + " " + person.height + " " + person.weight + " " + person.eyeColor + " " + person.occupation);
+    alert(person.firstName + " " + person.lastName + " is a" + " " + person.gender + ", was born on" + " " + person.dob + ", is " + person.height + "inches tall, weighs " + person.weight + "lbs, has " + person.eyeColor + " eyes, and currently works as a " + person.occupation + ".");
     break;
     case "family":
-    alert(person.firstName + " " + person.lastName + "'s Family Info Is:"
+    alert(person.firstName + " " + person.lastName + "'s Family Info Is:")
     break;
     case "descendants":
-    alert(person.firstName + " " + person.lastName + "'s Descendant Info Is:"
+    alert(person.firstName + " " + person.lastName + "'s Descendant Info Is:")
     break;
     case "restart":
     app(people); // restart
@@ -63,7 +63,7 @@ function searchByTrait(people){
 	let eyeColor = promptFor("What color is this person's eyes?", chars);
 
 	let foundTrait = people.filter(function(person){
-		if(person.gender === gender && person.dob === dob && person.height === height && person.weight === weight && person.eyeColor === eyeColor){
+		if(person.gender === gender || person.dob === dob && person.height === height && person.weight === weight && person.eyeColor === eyeColor){
 			return mainMenu(person);
 		}
 		else{
