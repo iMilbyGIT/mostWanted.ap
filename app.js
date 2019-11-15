@@ -54,30 +54,36 @@ function mainMenu(person, people){
   }
 }
 
-function searchByTrait(people){
-	let gender = promptFor("Is this person a male or female", chars);
-	let dob = promptFor("What is the person's birthday? Please format as mm/dd/yyyy?", chars);
-	let height = promptFor("How tall is this person? This should be a whole number and converted into inches. There are 12 inches per foot.", chars);
-	let weight = promptFor("How much does this person way? Please enter as a whole number.", chars);
-	let eyeColor = promptFor("What color is this person's eyes?");
+// function searchByTrait(){
+// 	let gender = promptFor("Is this person a male or female", chars);
+// 	let dob = promptFor("What is the person's birthday? Please format as mm/dd/yyyy?", chars);
+// 	let height = promptFor("How tall is this person? This should be a whole number and converted into inches. There are 12 inches per foot.", chars);
+// 	let weight = promptFor("How much does this person way? Please enter as a whole number.", chars);
+// 	let eyeColor = promptFor("What color is this person's eyes?", chars);
 
-	let foundTrait = people.filter(function(person){
-		if(person.gender === gender && person.dob === dob && person.height === height && person.weight === weight && person.eyeColor === eyeColor){
-			return mainMenu(person);
-		}
-		else{
-			return false;
-		}
-	})
-	return foundTrait;
-}
+// 	let foundTrait = people.filter(function(person){
+// 		if(person.gender === gender && person.dob === dob && person.height === height && person.weight === weight && person.eyeColor === eyeColor){
+// 			return mainMenu(person);
+// 		}
+// 		else{
+// 			return false;
+// 		}
+// 	})
+// 	return foundTrait;
+// }
+
+
+
+
+
+
 
 
 
 
 function searchByName(people){
-  let firstName = promptFor("What is the person's first name?", chars);
-  let lastName = promptFor("What is the person's last name?", chars);
+  let firstName = promptFor("What is the person's first name?", chars).charAt(0).toUpperCase() + firstName.slice(1);
+  let lastName = promptFor("What is the person's last name?", chars).charAt(0).toUpperCase() + lastName.slice(1);
 
   let foundPerson = people.filter(function(person){
     if(person.firstName === firstName && person.lastName === lastName){
