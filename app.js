@@ -39,10 +39,10 @@ function mainMenu(person, people){
     alert(person.firstName + " " + person.lastName + " is a" + " " + person.gender + ", was born on" + " " + person.dob + ", is " + person.height + "inches tall, weighs " + person.weight + "lbs, has " + person.eyeColor + " eyes, and currently works as a " + person.occupation + ".");
     break;
     case "family":
-    alert(person.firstName + " " + person.lastName + "'s Family Info Is:")
+    alert(person.firstName + " " + person.lastName + "is married to" + " " + persom.currentSpouse;
     break;
     case "descendants":
-    alert(person.firstName + " " + person.lastName + "'s Descendant Info Is:")
+    alert(person.firstName + " " + person.lastName + "'s Descendant Info Is:");
     break;
     case "restart":
     app(people); // restart
@@ -53,6 +53,19 @@ function mainMenu(person, people){
     return mainMenu(person, people); // ask again
   }
 }
+
+
+function descendantsInfo(people){
+// people.filter(function(person)
+}
+
+
+
+function familyInfo(people){
+
+}
+
+
 
 
 function searchByTrait(people){
