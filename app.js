@@ -56,12 +56,6 @@ function mainMenu(person, people){
   }
 }
 
-
-function descendantsInfo(people){
-// people.filter(function(person)
-}
-
-
 function showFamily(person, people){
   alert(person.firstName + " " + person.lastName + "'s parents are: ");
 }
@@ -85,9 +79,6 @@ function showFamily(person, people){
 //       return "no family"
 //     }
 // }
-
-
-
 
 
 function searchByTrait(people){
@@ -144,17 +135,16 @@ function displayPerson(person){
   alert(personInfo);
 }
 
-function displayFamily(person){
-  let personSpouse;
-  let personParents;
-  let personFamily = "Parents: " + person.parents + "\n";
-  personFamily += "Married To: " + person.currentSpouse + "\n";
-
-  alert(personFamily);
-}
-
-
-
+function displayFamily(people){
+  let personParents = person.parents + "\n";
+  let personSpouse = person.currentSpouse + "\n";
+  // alert(personFamily);
+// function swapId(people){
+  let idToName = people.filter(function(person){
+    if(person.id ==  personFamily || person.id == person.currentSpouse);
+    return idToName;
+  })
+} 
 
 
 // function that prompts and validates user input
