@@ -39,7 +39,7 @@ function mainMenu(person, people){
     alert(person.firstName + " " + person.lastName + " is a" + " " + person.gender + ", was born on" + " " + person.dob + ", is " + person.height + "inches tall, weighs " + person.weight + "lbs, has " + person.eyeColor + " eyes, and currently works as a " + person.occupation + ".");
     break;
     case "family":
-    alert(person.firstName + " " + person.lastName + "is married to" + " " + persom.currentSpouse;
+    alert(person.firstName + " " + person.lastName + "is married to" + " " + searchForSpouse(people, familyID));
     break;
     case "descendants":
     alert(person.firstName + " " + person.lastName + "'s Descendant Info Is:");
@@ -60,10 +60,29 @@ function descendantsInfo(people){
 }
 
 
-
-function familyInfo(people){
-
+function showFamily(person, people){
+  alert(person.firstName + " " + person.lastName + "'s parents are: ");
 }
+
+
+
+function searchForSpouse(people){
+  let foundFamily = people.filter(function(person){
+    if(person.id == familyID){
+      return true;
+    }
+    else{
+      return false;
+    }
+  });
+
+  if(foundFamily[0]){
+    return (foundFamily[0].firstName + " " + foundFamily[0].lastName);
+    } else {
+      return "no family"
+    }
+}
+
 
 
 
