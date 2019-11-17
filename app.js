@@ -36,10 +36,12 @@ function mainMenu(person, people){
 
   switch(displayOption){
     case "info":
-    alert(person.firstName + " " + person.lastName + " is a" + " " + person.gender + ", was born on" + " " + person.dob + ", is " + person.height + "inches tall, weighs " + person.weight + "lbs, has " + person.eyeColor + " eyes, and currently works as a " + person.occupation + ".");
+    displayPerson(person);
+    // alert(person.firstName + " " + person.lastName + " is a" + " " + person.gender + ", was born on" + " " + person.dob + ", is " + person.height + "inches tall, weighs " + person.weight + "lbs, has " + person.eyeColor + " eyes, and currently works as a " + person.occupation + ".");
     break;
     case "family":
-    alert(person.firstName + " " + person.lastName + "is married to" + " " + searchForSpouse(people, familyID));
+    displayFamily(person);
+    // alert(person.firstName + " " + person.lastName + "is married to" + " " + searchForSpouse(people, familyID));
     break;
     case "descendants":
     alert(person.firstName + " " + person.lastName + "'s Descendant Info Is:");
@@ -66,22 +68,23 @@ function showFamily(person, people){
 
 
 
-function searchForSpouse(people){
-  let foundFamily = people.filter(function(person){
-    if(person.id == familyID){
-      return true;
-    }
-    else{
-      return false;
-    }
-  });
+// function searchForSpouse(people){
+//   let familyID = 
+//   let foundFamily = people.filter(function(person){
+//     if(person.id == familyID){
+//       return true;
+//     }
+//     else{
+//       return false;
+//     }
+//   });
 
-  if(foundFamily[0]){
-    return (foundFamily[0].firstName + " " + foundFamily[0].lastName);
-    } else {
-      return "no family"
-    }
-}
+//   if(foundFamily[0]){
+//     return (foundFamily[0].firstName + " " + foundFamily[0].lastName);
+//     } else {
+//       return "no family"
+//     }
+// }
 
 
 
@@ -130,13 +133,29 @@ function displayPeople(people){
 }
 
 function displayPerson(person){
-  // print all of the information about a person:
-  // height, weight, age, name, occupation, eye color.
   let personInfo = "First Name: " + person.firstName + "\n";
   personInfo += "Last Name: " + person.lastName + "\n";
-  // TODO: finish getting the rest of the information to display
+  personInfo += "Gender: " + person.gender + "\n";
+  personInfo += "Date of Birth: " + person.dob + "\n";
+  personInfo += "Height (in): " + person.height + "\n";
+  personInfo += "Weight (lbs): " + person.weight + "\n";
+  personInfo += "Eye Color: " + person.eyeColor + "\n";
+  personInfo += "Occupation: " + person.occupation + "\n";
   alert(personInfo);
 }
+
+function displayFamily(person){
+  let personSpouse;
+  let personParents;
+  let personFamily = "Parents: " + person.parents + "\n";
+  personFamily += "Married To: " + person.currentSpouse + "\n";
+
+  alert(personFamily);
+}
+
+
+
+
 
 // function that prompts and validates user input
 function promptFor(question, valid){
