@@ -57,40 +57,39 @@ function mainMenu(person, people){
 
 function searchByMulipleTraits(people){
   let person;
-  let filteredPeople = people.filter(function(person){
-    while(filteredPeople[i]) {
 
-    }
-
-  // wrap all of this stuff in a loop and whilem filtered people is greater 
     let searchByTrait = prompt("Would you like to search by gender, dob, height, weight, eye color, or occupation? Type quit to return to main menu.");
     switch(searchByTrait){
       case "gender":
-        filteredPeople = searchByGender(filteredPeople);
+        people = searchByGender(people);
         break;
       case "dob":
-        filteredPeople = searchByDob(filteredPeople);
+        people = searchByDob(people);
         break;
       case "height":
-        filteredPeople = searchByHeight(filteredPeople);
+        people = searchByHeight(people);
         break;
       case "weight":
-        filteredPeople = searchByWeight(filteredPeople);
+        people = searchByWeight(people);
         break;
       case "eye color":
-        filteredPeople = searchByEyeColor(filteredPeople);
+        people = searchByEyeColor(people);
         break;
       case "occupation":
-        filteredPeople = searchByOccupation(filteredPeople);
+        people = searchByOccupation(people);
         break;
       case "quit":
         app(people);
         break;
       default:
-        searchByMulipleTraits(people);
+         return searchByMulipleTraits(people);
         break;
+    };
+    let response = promptFor(displayPeopleForPrompt(people) + "\n" + "Is the person you are looking for listed here?", chars);
+    if(response == "no"){
+      return searchByMulipleTraits(people);
+
     }
-});
 }
 
 function findFamily(person, people){
@@ -202,6 +201,13 @@ function displayPeople(people){
   alert(people.map(function(person){
     return person.firstName + " " + person.lastName;
   }).join("\n"));
+}
+function displayPeopleForPrompt(people){
+
+let thing =  people.map(function(person){
+    return person.firstName + " " + person.lastName;
+  }).join("\n");
+return thing;
 }
 
 function displayPersonInfo(person){
