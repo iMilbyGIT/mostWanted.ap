@@ -5,7 +5,7 @@ information below (GUI). */
 function app(people){
   let searchType = promptFor("Do you know the name of the person you are looking for? Enter 'yes' or 'no'", yesNo).toLowerCase();
   let searchResults;
-  let searchByTrait;
+  // let searchByTrait;
   switch(searchType){
     case 'yes':
       searchResults = searchByName(people);
@@ -56,8 +56,12 @@ function mainMenu(person, people){
 }
 
 function searchByMulipleTraits(people){
-  let filteredPeople = people;
+  let filteredPeople = people.filter(function(person){
+    while(filteredPeople > 1){
 
+    }
+      
+  
   // wrap all of this stuff in a loop and whilem filtered people is greater 
     let searchByTrait = prompt("Would you like to search by gender, dob, height, weight, eye color, or occupation? Type quit to return to main menu.");
     switch(searchByTrait){
@@ -65,19 +69,19 @@ function searchByMulipleTraits(people){
         filteredPeople = searchByGender(filteredPeople);
         break;
       case "dob":
-        filteredPeople = searchByDob(people);
+        filteredPeople = searchByDob(filteredPeople);
         break;
       case "height":
-        filteredPeople = searchByHeight(people);
+        filteredPeople = searchByHeight(filteredPeople);
         break;
       case "weight":
-        filteredPeople = searchByWeight(people);
+        filteredPeople = searchByWeight(filteredPeople);
         break;
       case "eye color":
-        filteredPeople = searchByEyeColor(people);
+        filteredPeople = searchByEyeColor(filteredPeople);
         break;
       case "occupation":
-        filteredPeople = searchByOccupation(people);
+        filteredPeople = searchByOccupation(filteredPeople);
         break;
       case "quit":
         app(people);
