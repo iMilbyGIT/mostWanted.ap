@@ -11,7 +11,7 @@ function app(people){
       searchResults = searchByName(people);
       break;
     case 'no':
-      searchByMulipleTraits(people);
+      searchResults = searchByMulipleTraits(people);
       break;
       default:
     app(people); // restart app
@@ -85,12 +85,14 @@ function searchByMulipleTraits(people){
          return searchByMulipleTraits(people);
         break;
     };
-    let response = promptFor(displayPeopleForPrompt(people) + "\n" + "Is the person you are looking for listed here?", chars);
-    if(response == "no"){
-      return searchByMulipleTraits(people);
-
+    let response = promptFor(displayPeopleForPrompt(people) + "\n" + "Is the person you are looking for listed here? Please type yes or no", chars);
+    if(response === "no"){
+      return searchByMulipleTraits(people)};
+    if(response === "yes"){
+      return searchByName(people);
     }
-}
+    }
+
 
 function findFamily(person, people){
   let resultOfFilterForFamily = people.filter(function (per){
@@ -210,6 +212,8 @@ let thing =  people.map(function(person){
 return thing;
 }
 
+
+
 function displayPersonInfo(person){
   let personInfo = "First Name: " + person.firstName + "\n";
   personInfo += "Last Name: " + person.lastName + "\n";
@@ -225,7 +229,7 @@ function displayPersonInfo(person){
 function displayFamily(person){
   let personFamily = "Parent(s): " + person.parents + "\n";
   personFamily += "Current Spouse: " + person.currentSpouse + "\n";
-
+  alert(personFamily);
   // let idFlip;
   let personParents = person.parents;
   let personSpouse = person.currentSpouse;
