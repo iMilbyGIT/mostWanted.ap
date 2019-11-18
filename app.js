@@ -94,17 +94,6 @@ function searchByMulipleTraits(people){
     }
 
 
-function findFamily(person, people){
-  let resultOfFilterForFamily = people.filter(function (per){
-      if(person.currentSpouse === per.id){
-        return true;
-      }else{
-        return false;
-      }
-  });
-  console.log(resultOfFilterForFamily[0].firstName);
-}
-
 function searchByName(people){
   let firstName = promptFor("What is the person's first name?", chars).toLowerCase();
   let lastName = promptFor("What is the person's last name?", chars).toLowerCase();
@@ -133,7 +122,7 @@ function searchByGender(people){
 }
 
 function searchByDob(people){
-  let dob = promptFor("What is this person a male or female? Please enter in mm/dd/yyyy format", chars);
+  let dob = promptFor("Please enter in mm/dd/yyyy format", chars);
   let foundDob = people.filter(function(person){
     if(person.dob === dob){
     return true;
@@ -224,6 +213,7 @@ function displayPersonInfo(person){
   personInfo += "Eye Color: " + person.eyeColor + "\n";
   personInfo += "Occupation: " + person.occupation + "\n";
   alert(personInfo);
+  
 }
 
 function displayFamily(person){
@@ -235,6 +225,19 @@ function displayFamily(person){
   let personSpouse = person.currentSpouse;
 
   }
+
+
+function findFamily(person, people){
+  let resultOfFilterForFamily = people.filter(function (per){
+      if(person.currentSpouse === per.id){
+        return true;
+      }else{
+        return false;
+      }
+  });
+  console.log(resultOfFilterForFamily[0].firstName);
+}
+
 
 // function that prompts and validates user input
 function promptFor(question, valid){
