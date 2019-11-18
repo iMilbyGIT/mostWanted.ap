@@ -56,11 +56,9 @@ function mainMenu(person, people){
   }
 }
 
-function showFamily(person, people){
-  alert(person.firstName + " " + person.lastName + "'s parents are: ");
-}
-
-
+// function showFamily(person, people){
+//   alert(person.firstName + " " + person.lastName + "'s parents are: ");
+// }
 
 // function searchForSpouse(people){
 //   let familyID = 
@@ -79,7 +77,6 @@ function showFamily(person, people){
 //       return "no family"
 //     }
 // }
-
 
 function searchByTrait(people){
 	let gender = promptFor("Is this person a male or female?", chars);
@@ -135,16 +132,26 @@ function displayPerson(person){
   alert(personInfo);
 }
 
-function displayFamily(people){
+function displayFamily(person){
+  let personFamily[];
   let personParents = person.parents + "\n";
   let personSpouse = person.currentSpouse + "\n";
-  // alert(personFamily);
+  
+  let idFlip = data.map(function(people, person){
+    if(person.id == personParents || person.id == person.currentSpouse){
+      return person.firstName + " " + person.lastName;
+        }
+    }
+  }
+
+
+    alert(personFamily);
 // function swapId(people){
-  let idToName = people.filter(function(person){
-    if(person.id ==  personFamily || person.id == person.currentSpouse);
-    return idToName;
-  })
-} 
+//   let idToName = people.filter(function(person){
+//     if(person.id ==  personFamily || person.id == person.currentSpouse);
+//     return idToName;
+//   })
+// } 
 
 
 // function that prompts and validates user input
