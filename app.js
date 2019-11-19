@@ -43,7 +43,7 @@ function mainMenu(person, people){
     // alert(person.firstName + " " + person.lastName + "is married to" + " " + searchForSpouse(people, familyID));
     break;
     case "descendants":
-    alert(person.firstName + " " + person.lastName + "'s Descendant Info Is:");
+    alert(person.firstName + " " + person.lastName + "'s Descendant Info Is: We actually had a really hard time figuring this out. I'll need to revisit and resubmit down the road.");
     break;
     case "restart":
     app(people); // restart
@@ -186,7 +186,7 @@ function searchByOccupation(people){
   return foundOccupation;
 }
 
-function displayPersonInfo(person){
+function displayPersonInfo(person, people){
   let personInfo = "ID: " + person.id + "\n";
   personInfo += "First Name: " + person.firstName + "\n";
   personInfo += "Last Name: " + person.lastName + "\n";
@@ -199,27 +199,29 @@ function displayPersonInfo(person){
   personInfo += "Parent(s): " + person.parents + "\n";
   personInfo += "Current Spouse: " + person.currentSpouse + "\n";
   alert(personInfo);
+  return mainMenu(person, people);
+
 }
 
-function displayFamily(person){
+function displayFamily(person, people){
   let personFamily = "Parent(s): " + person.parents + "\n";
   personFamily += "Current Spouse: " + person.currentSpouse + "\n";
   alert(personFamily);
-  // let idFlip;
-  let personParentsName = person.parents;
-  let personSpouseName = person.currentSpouse;
+  return mainMenu(person, people);
+  // let personParentsName = person.parents;
+  // let personSpouseName = person.currentSpouse;
   }
 
-// function idNumberFlipToName(person, people){
-//   let resultOfFilterForFamily = people.filter(function(person){
-//       if(person.currentSpouse === person.id || person.parents === person.id){
-//         return true;
-//       }else{
-//         return false;
-//       }
-//   });
-//   alert(resultOfFilterForFamily[0, 1].firstName);
-// }
+function idNumberFlipToName(person, people){
+  let resultOfFilterForFamily = people.filter(function(person){
+      if(person.currentSpouse === person.id || person.parents === person.id){
+        return true;
+      }else{
+        return false;
+      }
+  });
+  alert(resultOfFilterForFamily[0].firstName);
+}
 
 
 // function that prompts and validates user input
