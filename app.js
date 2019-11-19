@@ -186,25 +186,9 @@ function searchByOccupation(people){
   return foundOccupation;
 }
 
-
-// alerts a list of people
-function displayPeople(people){
-  alert(people.map(function(person){
-    return person.firstName + " " + person.lastName;
-  }).join("\n"));
-}
-function displayPeopleForPrompt(people){
-
-let thing =  people.map(function(person){
-    return person.firstName + " " + person.lastName;
-  }).join("\n");
-return thing;
-}
-
-
-
 function displayPersonInfo(person){
-  let personInfo = "First Name: " + person.firstName + "\n";
+  let personInfo = "ID: " + person.id + "\n";
+  personInfo += "First Name: " + person.firstName + "\n";
   personInfo += "Last Name: " + person.lastName + "\n";
   personInfo += "Gender: " + person.gender + "\n";
   personInfo += "Date of Birth: " + person.dob + "\n";
@@ -212,8 +196,9 @@ function displayPersonInfo(person){
   personInfo += "Weight (lbs): " + person.weight + "\n";
   personInfo += "Eye Color: " + person.eyeColor + "\n";
   personInfo += "Occupation: " + person.occupation + "\n";
+  personInfo += "Parent(s): " + person.parents + "\n";
+  personInfo += "Current Spouse: " + person.currentSpouse + "\n";
   alert(personInfo);
-  
 }
 
 function displayFamily(person){
@@ -221,22 +206,20 @@ function displayFamily(person){
   personFamily += "Current Spouse: " + person.currentSpouse + "\n";
   alert(personFamily);
   // let idFlip;
-  let personParents = person.parents;
-  let personSpouse = person.currentSpouse;
-
+  let personParentsName = person.parents;
+  let personSpouseName = person.currentSpouse;
   }
 
-
-function findFamily(person, people){
-  let resultOfFilterForFamily = people.filter(function (per){
-      if(person.currentSpouse === per.id){
-        return true;
-      }else{
-        return false;
-      }
-  });
-  console.log(resultOfFilterForFamily[0].firstName);
-}
+// function idNumberFlipToName(person, people){
+//   let resultOfFilterForFamily = people.filter(function(person){
+//       if(person.currentSpouse === person.id || person.parents === person.id){
+//         return true;
+//       }else{
+//         return false;
+//       }
+//   });
+//   alert(resultOfFilterForFamily[0, 1].firstName);
+// }
 
 
 // function that prompts and validates user input
@@ -256,3 +239,45 @@ function yesNo(input){
 function chars(input){
   return true; // default validation only
 }
+
+
+// alerts a list of people
+function displayPeople(people){
+  alert(people.map(function(person){
+    return person.firstName + " " + person.lastName;
+  }).join("\n"));
+}
+function displayPeopleForPrompt(people){
+let thing =  people.map(function(person){
+    return person.firstName + " " + person.lastName;
+  }).join("\n");
+return thing;
+}
+
+
+let assignedIDs = [
+  {
+      "billyBobID": 272822514,
+      "umaBobID": 401222887,
+      "michaelWalkensID": 409574486,
+      "jonWalkensID": 260451248,
+      "jackPafoyID": 629807187,
+      "jenPafoyID": 464142841,
+      "misterPatatooID": 982411429,
+      "missuzPotatooID": 595767575,
+      "joyMaddenID": 693243224,
+      "maderMaddenID": 888201200,
+      "jillPafoyID": 878013758,
+      "ralphBobID": 951747547,
+      "jasmineBobID": 159819275,
+      "anniePafoyID": 348457184,
+      "davePafoyID": 294874671,
+      "amiiPafoyID": 931247228,
+      "reginaMaddenID": 822843554,
+      "hanaMaddenID": 819168108,
+      "eloiseMaddenID": 969837479,
+      "mattiasMaddenID": 313207561,
+      "ellenMaddenID": 313997561,
+      "joeyMaddenID": 313998000,
+  }
+];
